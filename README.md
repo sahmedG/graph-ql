@@ -8,11 +8,11 @@
 2. Profile Page (atleast 3)
     - User info ✅
     - XP Amount ✅
-    - Grades
-    - Audits 
-    - Skills 
+    - Grades ✅
+    - Audits ✅
+    - Skills ✅
     - Statistcs Graph 
-        - Atleast 2
+        - Atleast 2 ✅
         - Must be done with SVG?
 
 2. A Way to Logout ✅
