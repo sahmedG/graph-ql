@@ -1,0 +1,29 @@
+{
+  "name": "graphql",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/index.ts",
+  "scripts": {
+    "start": "npm run watch",
+    "watch": "nodemon --watch src --ext 'ts,json,html,css,js' --exec 'npm run build && npx http-server dist/ -p 8080'",
+    "lint": "eslint src/",
+    "lint:fix": "eslint src/ --fix",
+    "build": "npm run lint && tsc && npm run prebuild",
+    "prebuild": "cp src/index.html dist/index.html && cp -r src/static dist/ && cp -r src/styles dist/",
+    "clean": "rm -rf dist",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Natheer Radhi",
+  "license": "ISC",
+  "devDependencies": {
+    "@eslint/js": "^9.2.0",
+    "eslint": "^8.57.0",
+    "globals": "^15.1.0",
+    "http-server": "^14.1.1",
+    "nodemon": "^2.0.22",
+    "typescript": "^5.4.5",
+    "typescript-eslint": "^7.8.0"
+  },
+  "packageManager": "yarn@1.22.22+sha1.ac34549e6aa8e7ead463a7407e1c7390f61a6610"
+}
