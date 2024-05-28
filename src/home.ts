@@ -589,16 +589,22 @@ function bottomTable(): HTMLElement {
   container.style.backgroundColor = "var(--pink-1)";
   container.style.border = "2px solid var(--pink-6)";
   container.style.borderRadius = "8px";
-  container.style.padding = "30px";
-  container.style.height = "100%";
-  container.style.marginTop = "16px";
+  container.style.padding = "25px";
+  container.style.height = "45vh";
+  container.style.marginTop = "10px";
+  container.style.width = "100%"; // Ensures the container takes full width
+
+  const tableContainer = document.createElement("div");
+  tableContainer.style.width = "100%";
+  tableContainer.style.height = "100%";
+  tableContainer.style.overflowY = "auto";
 
   const table = document.createElement("table");
-  table.style.width = "100%";
+  table.style.width = "100%"; // Ensures the table takes full width
   table.style.borderCollapse = "collapse";
 
   const thead = document.createElement("thead");
-  thead.style.textAlign = "Justify";
+  thead.style.textAlign = "justify";
   thead.style.borderBottom = "4px solid var(--pink-6)";
   thead.style.padding = "10px";
 
@@ -618,8 +624,8 @@ function bottomTable(): HTMLElement {
   const tbody = document.createElement("tbody");
 
   table.append(thead, tbody);
-
-  container.append(table);
+  tableContainer.append(table);
+  container.append(tableContainer);
 
   let auditsData: Audit[] = [];
 
@@ -715,6 +721,7 @@ function bottomTable(): HTMLElement {
 
   return container;
 }
+
 
 function workingOn(): HTMLElement {
   const container = document.createElement("div");
