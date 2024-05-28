@@ -38,8 +38,6 @@ function renderTitle(): HTMLElement {
   container.style.display = "flex";
   container.style.alignItems = "center";
   container.style.justifyContent = "space-between";
-  // to space the title and navbar
-  container.style.marginTop = "16px";
 
   const title = document.createElement("h2");
   title.innerText = "Loading...";
@@ -102,7 +100,7 @@ function leftStatsTopView(): HTMLElement {
 
   container.style.gap = "16px";
 
-  container.style.padding = "30px";
+  container.style.padding = "20px";
   container.style.backgroundColor = "var(--pink-3)";
   // if not background will overlap
   // round top corners
@@ -205,7 +203,7 @@ function leftStatsBottomView(): HTMLElement {
   leftView.style.justifyContent = "space-between";
   leftView.style.gap = "26px";
 
-  leftView.style.padding = "30px";
+  leftView.style.padding = "25px";
   leftView.style.backgroundColor = "var(--pink-1)";
 
   // if not background will overlap
@@ -235,7 +233,7 @@ function leftStatsBottomView(): HTMLElement {
   rightView.style.justifyContent = "space-between";
   rightView.style.gap = "26px";
 
-  rightView.style.padding = "30px";
+  rightView.style.padding = "25px";
   rightView.style.backgroundColor = "var(--pink-1)";
 
   rightView.style.borderBottomRightRadius = "8px";
@@ -283,7 +281,7 @@ function rightStats(): HTMLElement {
   container.style.backgroundColor = "var(--pink-1)";
   container.style.border = "2px solid var(--pink-6)";
   container.style.borderRadius = "8px";
-  container.style.padding = "30px";
+  container.style.padding = "25px";
 
   const title = document.createElement("h5");
   title.style.display = "flex";
@@ -534,7 +532,7 @@ function renderBottom(): HTMLElement {
   // container.style.alignItems = "center";
   container.style.justifyContent = "space-between";
 
-  container.style.marginTop = "16px";
+  container.style.marginTop = "5px";
   container.append(bottomTitle());
 
   setTimeout(() => {
@@ -729,7 +727,7 @@ function workingOn(): HTMLElement {
   container.style.alignItems = "center";
   container.style.justifyContent = "space-between";
   // to space the title and navbar
-  container.style.marginTop = "16px";
+  container.style.marginTop = "10px";
 
   const workingOnTitle = document.createElement("div");
   const projectTitle = document.createElement("h5");

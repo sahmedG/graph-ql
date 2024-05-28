@@ -19,8 +19,6 @@ function renderTitle() {
     container.style.display = "flex";
     container.style.alignItems = "center";
     container.style.justifyContent = "space-between";
-    // to space the title and navbar
-    container.style.marginTop = "16px";
     const title = document.createElement("h2");
     title.innerText = "Loading...";
     const level = document.createElement("h3");
@@ -68,7 +66,7 @@ function leftStatsTopView() {
     container.style.display = "flex";
     container.style.flexDirection = "column";
     container.style.gap = "16px";
-    container.style.padding = "30px";
+    container.style.padding = "20px";
     container.style.backgroundColor = "var(--pink-3)";
     // if not background will overlap
     // round top corners
@@ -143,7 +141,7 @@ function leftStatsBottomView() {
     leftView.style.flexDirection = "column";
     leftView.style.justifyContent = "space-between";
     leftView.style.gap = "26px";
-    leftView.style.padding = "30px";
+    leftView.style.padding = "25px";
     leftView.style.backgroundColor = "var(--pink-1)";
     // if not background will overlap
     // round top corners
@@ -164,7 +162,7 @@ function leftStatsBottomView() {
     rightView.style.flexDirection = "column";
     rightView.style.justifyContent = "space-between";
     rightView.style.gap = "26px";
-    rightView.style.padding = "30px";
+    rightView.style.padding = "25px";
     rightView.style.backgroundColor = "var(--pink-1)";
     rightView.style.borderBottomRightRadius = "8px";
     const rightViewTitle = document.createElement("h5");
@@ -200,7 +198,7 @@ function rightStats() {
     container.style.backgroundColor = "var(--pink-1)";
     container.style.border = "2px solid var(--pink-6)";
     container.style.borderRadius = "8px";
-    container.style.padding = "30px";
+    container.style.padding = "25px";
     const title = document.createElement("h5");
     title.style.display = "flex";
     title.style.flexDirection = "column";
@@ -398,7 +396,7 @@ function renderBottom() {
     container.style.flexDirection = "column";
     // container.style.alignItems = "center";
     container.style.justifyContent = "space-between";
-    container.style.marginTop = "16px";
+    container.style.marginTop = "5px";
     container.append(bottomTitle());
     setTimeout(() => {
         container.append(bottomTable());
@@ -446,14 +444,19 @@ function bottomTable() {
     container.style.backgroundColor = "var(--pink-1)";
     container.style.border = "2px solid var(--pink-6)";
     container.style.borderRadius = "8px";
-    container.style.padding = "30px";
-    container.style.height = "100%";
-    container.style.marginTop = "16px";
+    container.style.padding = "25px";
+    container.style.height = "45vh";
+    container.style.marginTop = "10px";
+    container.style.width = "100%"; // Ensures the container takes full width
+    const tableContainer = document.createElement("div");
+    tableContainer.style.width = "100%";
+    tableContainer.style.height = "100%";
+    tableContainer.style.overflowY = "auto";
     const table = document.createElement("table");
-    table.style.width = "100%";
+    table.style.width = "100%"; // Ensures the table takes full width
     table.style.borderCollapse = "collapse";
     const thead = document.createElement("thead");
-    thead.style.textAlign = "Justify";
+    thead.style.textAlign = "justify";
     thead.style.borderBottom = "4px solid var(--pink-6)";
     thead.style.padding = "10px";
     const tr = document.createElement("tr");
@@ -469,7 +472,8 @@ function bottomTable() {
     thead.append(tr);
     const tbody = document.createElement("tbody");
     table.append(thead, tbody);
-    container.append(table);
+    tableContainer.append(table);
+    container.append(tableContainer);
     let auditsData = [];
     const renderTable = (filteredAudits) => {
         tbody.innerHTML = "";
@@ -556,7 +560,7 @@ function workingOn() {
     container.style.alignItems = "center";
     container.style.justifyContent = "space-between";
     // to space the title and navbar
-    container.style.marginTop = "16px";
+    container.style.marginTop = "10px";
     const workingOnTitle = document.createElement("div");
     const projectTitle = document.createElement("h5");
     projectTitle.style.color = "var(--pink-11)";
