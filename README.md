@@ -11,9 +11,9 @@
     - Grades ✅
     - Audits ✅
     - Skills ✅
-    - Statistcs Graph 
+    - Statistcs Graph
         - Atleast 2 ✅
-        - Must be done with SVG?
+        - Must be done with SVG ✅
 
 2. A Way to Logout ✅
 3. Hosting with Github Pages
