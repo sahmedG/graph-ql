@@ -1,13 +1,8 @@
+/* General box-sizing and reset */
 *,
 *::after,
 *::before {
     box-sizing: border-box;
-}
-
-@font-face {
-    font-family: 'Inter';
-    src: url('/static/Inter-VariableFont_slnt,wght.ttf') format("truetype-variations");
-    font-weight: 1 999;
 }
 
 * {
@@ -16,43 +11,37 @@
     font-family: 'Inter';
 
     /* Colors */
-    --pink-1: #180D12;
+    --blue-1: #180D12;
     --pink-3: #4685b2;
-
-    --pink-6: #477cd2;
+    --blue-6: #477cd2;
     --pink-9: #4c8fe0;
-    --pink-10: #5151e3;
-    --pink-11: #4a5e94;
-    --pink-12: #44e3f2;
+    --blue-10: #5151e3;
+    --blue-11: #4a5e94;
+    --blue-12: #44e3f2;
 
     /* Gray */
     --gray-1: #111113;
     --gray-2: #19191B;
-
     --gray-7: #46484F;
-
     --gray-11: #B2B3BD;
     --gray-12: #EEEEF0;
 }
 
+@font-face {
+    font-family: 'Inter';
+    src: url('/static/Inter-VariableFont_slnt,wght.ttf') format("truetype-variations");
+    font-weight: 1 999;
+}
+
 body {
     color: var(--gray-12);
-
-    /* For browsers that do not support gradients */
-    background-color: var(--pink-3);
-
-    /* For modern browsers */
-    background-image: linear-gradient(to bottom right, var(--pink-3) 0%, var(--gray-1) 15%);
-
-    /* for gradient to work */
+    background-color: var(--pink-3); /* For browsers that do not support gradients */
+    background-image: linear-gradient(to bottom right, var(--pink-3) 0%, var(--gray-1) 15%); /* For modern browsers */
     width: 100%;
     height: 100vh;
-
     display: flex;
     flex-direction: column;
-
     gap: 8px;
-
     padding: 20px;
 }
 
@@ -69,109 +58,218 @@ h4 {
 }
 
 h5 {
-    font-size: 23px;
+    font-size: 18px;
 }
 
 p {
     font-size: 16px;
-
 }
-
 
 .navbar {
     display: flex;
     align-items: center;
     gap: 32px;
-
-    #navbar-title {
-        display: flex;
-        gap: 4px;
-        align-items: center;
-
-        color: var(--pink-12);
-        font-weight: bold;
-
-        span {
-            color: var(--pink-11);
-            font-size: 13px;
-        }
-    }
-
-    .nav-item {
-        color: var(--gray-11);
-        text-decoration: none;
-
-        font-size: 13px;
-        font-weight: bold;
-    }
-
-    .nav-item:hover {
-        color: var(--gray-12);
-    }
-
-    .nav-item.active {
-        color: var(--gray-12);
-    }
-
-    .nav-item:first-of-type {
-        margin-left: auto;
-    }
 }
 
+#navbar-title {
+    display: flex;
+    gap: 4px;
+    align-items: center;
+    color: var(--blue-12);
+    font-weight: bold;
+}
+
+#navbar-title span {
+    color: var(--blue-11);
+    font-size: 13px;
+}
+
+.nav-item {
+    color: var(--gray-11);
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.nav-item:hover {
+    color: var(--gray-12);
+}
+
+.nav-item.active {
+    color: var(--gray-12);
+}
+
+.nav-item:first-of-type {
+    margin-left: auto;
+}
 
 #login-form {
     display: flex;
     flex-direction: column;
     gap: 20px;
-
     padding: 20px;
-
     background-color: var(--gray-2);
-
     border: 1px solid var(--gray-7);
     border-radius: 8px;
-
     width: 100%;
     max-width: 400px;
+}
 
-    /* truncate on overflow */
-    h1 {
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
+#login-form h1 {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+#login-form input {
+    color: var(--gray-12);
+    padding: 8px;
+    border: 1px solid var(--gray-7);
+    border-radius: 4px;
+    background-color: inherit;
+}
+
+#login-form ::placeholder {
+    color: var(--gray-11);
+}
+
+#login-form button[type="submit"] {
+    background-color: var(--pink-9);
+    color: var(--blue-1);
+    font-weight: bold;
+    border: none;
+    border-radius: 4px;
+    padding: 8px;
+}
+
+#login-form button[type="submit"][disabled] {
+    background-color: #797B86;
+}
+
+#login-form button[type="submit"]:not([disabled]):hover {
+    background-color: var(--blue-10);
+    cursor: pointer;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
     }
 
-    input {
-        color: var(--gray-12);
-        padding: 8px;
-
-        border: 1px solid var(--gray-7);
-        border-radius: 4px;
-
-        background-color: inherit;
-    }
-    ::placeholder {
-        color: var(--gray-11);
+    .container h3 {
+        font-size: 1.2em;
     }
 
-    button[type="submit"] {
-        background-color: var(--pink-9);
-        color: var(--pink-1);
-        font-weight: bold;
-
-        border: none;
-        border-radius: 4px;
-
-        padding: 8px;
+    .container table {
+        font-size: 0.9em;
     }
 
-    button[type="submit"][disabled] {
-        background-color: #797B86;
+    .container label {
+        font-size: 0.9em;
     }
 
-    button[type="submit"]:not([disabled]):hover {
-        background-color: var(--pink-10);
-        cursor: pointer;
+    .container select {
+        font-size: 0.9em;
+    }
+}
+
+/* Additional responsive styles */
+
+/* Title container */
+.title-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: var(--blue-1);
+    border-bottom: 2px solid var(--blue-6);
+}
+
+.title {
+    font-size: 1.5em;
+    color: var(--blue-12);
+}
+
+.level {
+    color: var(--gray-11);
+}
+
+/* Stats container */
+.stats-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 13px;
+    padding: 10px;
+    flex-wrap: wrap;
+}
+
+.left-stats,
+.right-stats,
+.skills {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 44%;
+    border: 2px solid var(--blue-6);
+    border-radius: 8px;
+    padding: 10px;
+    box-sizing: border-box;
+}
+/* Skill Section Styles */
+.skills {
+    display: flex;
+    flex-direction: column;
+    padding: inherit;
+    align-items: center;
+    justify-content: space-evenly;
+    border: 2px solid var(--blue-6);
+    border-radius: 8px;
+    width: 25%;
+  }
+
+  .skills-title {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: inherit;
+  }
+
+  .graph-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: inherit;
+  }
+
+  @media (max-width: 768px) {
+    .skills {
+      width: 100%;
+    }
+  }
+
+
+@media (max-width: 768px) {
+    .title-container {
+        flex-direction: column;
+        align-items: flex-start;
     }
 
+    .title,
+    .level {
+        font-size: 1.2em;
+    }
+
+    .stats-container {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .left-stats,
+    .right-stats,
+    .skills {
+        max-width: 100%;
+    }
 }

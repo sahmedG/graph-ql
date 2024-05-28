@@ -35,16 +35,15 @@ export default function homeHandler() {
 
 function renderTitle(): HTMLElement {
   const container = document.createElement("div");
-  container.style.display = "flex";
-  container.style.alignItems = "center";
-  container.style.justifyContent = "space-between";
+  container.classList.add("title-container");
 
   const title = document.createElement("h2");
   title.innerText = "Loading...";
+  title.classList.add("title");
 
   const level = document.createElement("h3");
   level.innerText = "Loading...";
-  level.style.color = "var(--gray-11)";
+  level.classList.add("level");
 
   container.append(title, level);
 
@@ -63,10 +62,8 @@ function renderTitle(): HTMLElement {
 
 function renderStats(): HTMLElement {
   const container = document.createElement("div");
-  container.style.display = "flex";
-  // container.style.alignItems = "stretch";
-  container.style.gap = "13px";
-  container.style.justifyContent = "space-between";
+  container.classList.add("stats-container");
+
   container.append(leftStats(), renderSkills(), rightStats());
 
   return container;
@@ -74,18 +71,13 @@ function renderStats(): HTMLElement {
 
 function leftStats(): HTMLElement {
   const container = document.createElement("div");
-  container.style.display = "flex";
-  container.style.flexDirection = "column";
-  container.style.alignItems = "center";
-  container.style.justifyContent = "center";
-  container.style.width = "44%";
-  container.style.border = "2px solid var(--pink-6)";
-  container.style.borderRadius = "8px";
+  container.classList.add("left-stats");
 
   container.append(leftStatsTopView(), leftStatsBottomView());
 
   return container;
 }
+
 
 function leftStatsTopView(): HTMLElement {
   const container = document.createElement("div");
@@ -107,7 +99,7 @@ function leftStatsTopView(): HTMLElement {
   container.style.borderTopLeftRadius = "8px";
   container.style.borderTopRightRadius = "8px";
 
-  container.style.borderBottom = "2px solid var(--pink-6)";
+  container.style.borderBottom = "2px solid var(--blue-6)";
 
   const title = document.createElement("h5");
   title.innerText = "Audits Ratio";
@@ -117,7 +109,7 @@ function leftStatsTopView(): HTMLElement {
   const doneTitle = document.createElement("p");
 
   doneTitle.innerText = "Done";
-  doneTitle.style.color = "var(--pink-11)";
+  doneTitle.style.color = "var(--blue-11)";
   doneTitle.style.fontWeight = "bold";
   // make it near the line
   doneTitle.style.marginBottom = "-12px";
@@ -126,19 +118,19 @@ function leftStatsTopView(): HTMLElement {
 
   receivedTitle.style.marginTop = "8px";
   receivedTitle.innerText = "Received";
-  receivedTitle.style.color = "var(--pink-12)";
+  receivedTitle.style.color = "var(--blue-12)";
   receivedTitle.style.fontWeight = "bold";
   // make it near the line
   receivedTitle.style.marginBottom = "-12px";
 
-  const doneLine = makeLine(100, "var(--pink-11)");
-  const receivedLine = makeLine(50, "var(--pink-12)");
+  const doneLine = makeLine(100, "var(--blue-11)");
+  const receivedLine = makeLine(50, "var(--blue-12)");
 
   doneDiv.append(doneTitle, doneLine, receivedTitle, receivedLine);
 
   const ratio = document.createElement("h5");
   ratio.innerText = "Loading...";
-  ratio.style.color = "var(--pink-12)";
+  ratio.style.color = "var(--blue-12)";
   ratio.style.textAlign = "end";
 
   container.append(title, doneDiv, ratio);
@@ -204,20 +196,20 @@ function leftStatsBottomView(): HTMLElement {
   leftView.style.gap = "26px";
 
   leftView.style.padding = "25px";
-  leftView.style.backgroundColor = "var(--pink-1)";
+  leftView.style.backgroundColor = "var(--blue-1)";
 
   // if not background will overlap
   // round top corners
   leftView.style.borderBottomLeftRadius = "8px";
 
-  leftView.style.borderRight = "2px solid var(--pink-6)";
+  leftView.style.borderRight = "2px solid var(--blue-6)";
 
   const leftViewTitle = document.createElement("h5");
   leftViewTitle.innerText = "Your Last Audit";
-  leftViewTitle.style.color = "var(--pink-11)";
+  leftViewTitle.style.color = "var(--blue-11)";
 
   const leftViewProjectName = document.createElement("h5");
-  leftViewProjectName.style.color = "var(--pink-12)";
+  leftViewProjectName.style.color = "var(--blue-12)";
   leftViewProjectName.innerText = "Loading...";
 
   leftView.append(leftViewTitle, leftViewProjectName);
@@ -234,16 +226,16 @@ function leftStatsBottomView(): HTMLElement {
   rightView.style.gap = "26px";
 
   rightView.style.padding = "25px";
-  rightView.style.backgroundColor = "var(--pink-1)";
+  rightView.style.backgroundColor = "var(--blue-1)";
 
   rightView.style.borderBottomRightRadius = "8px";
 
   const rightViewTitle = document.createElement("h5");
   rightViewTitle.innerText = "You Just Finished";
-  rightViewTitle.style.color = "var(--pink-11)";
+  rightViewTitle.style.color = "var(--blue-11)";
 
   const rightViewProjectName = document.createElement("h5");
-  rightViewProjectName.style.color = "var(--pink-12)";
+  rightViewProjectName.style.color = "var(--blue-12)";
   rightViewProjectName.innerText = "Loading...";
 
   rightView.append(rightViewTitle, rightViewProjectName);
@@ -254,7 +246,7 @@ function leftStatsBottomView(): HTMLElement {
     .then((data) => {
       leftViewProjectName.innerHTML = `${
         data.projectName
-      } <span style="color: var(--pink-11);font-weight:normal">- ${
+      } <span style="color: var(--blue-11);font-weight:normal">- ${
         data.captain
       }</span> ${data.didPass ? "✅" : "❌"}`;
     })
@@ -278,8 +270,8 @@ function rightStats(): HTMLElement {
   container.style.display = "flex";
   container.style.flexDirection = "column";
   container.style.gap = "16px";
-  container.style.backgroundColor = "var(--pink-1)";
-  container.style.border = "2px solid var(--pink-6)";
+  container.style.backgroundColor = "var(--blue-1)";
+  container.style.border = "2px solid var(--blue-6)";
   container.style.borderRadius = "8px";
   container.style.padding = "25px";
 
@@ -343,7 +335,7 @@ function rightStats(): HTMLElement {
 
       const topOnesTitle = document.createElement("h5");
       topOnesTitle.innerText = "Top 5 Projects";
-      topOnesTitle.style.color = "var(--pink-11)";
+      topOnesTitle.style.color = "var(--blue-11)";
 
       topOnesDiv.append(topOnesTitle);
 
@@ -352,7 +344,7 @@ function rightStats(): HTMLElement {
         // amount is bytes converted to KB
         p.innerText = `${project.name} - ${project.amount / 1000} KB`;
 
-        p.style.color = "var(--pink-10)";
+        p.style.color = "var(--blue-10)";
         topOnesDiv.append(p);
       });
 
@@ -374,46 +366,34 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 function renderSkills(): HTMLElement {
-  // const container = document.createElement("div");
-
   const skillsDiv = document.createElement("div");
-  skillsDiv.style.display = "flex";
-  skillsDiv.style.flexDirection = "column";
-  skillsDiv.style.padding = "inherit";
-  skillsDiv.style.alignItems = "center";
-  skillsDiv.style.justifyContent = "space-evenly";
-  skillsDiv.style.border = "2px solid var(--pink-6)";
-  skillsDiv.style.borderRadius = "8px";
-  skillsDiv.style.width = "25%";
+  skillsDiv.classList.add("skills");
 
   const skillsTitle = document.createElement("div");
   skillsTitle.innerHTML = "<h5>Best skills</h5>";
-  skillsTitle.style.display = "flex";
-  skillsTitle.style.flexDirection = "row";
-  skillsTitle.style.justifyContent = "center";
-  skillsTitle.style.padding = "inherit";
+  skillsTitle.classList.add("skills-title");
 
   getSkills(parseJwt().userId)
     .then((skills) => {
       // Clear existing content
       skillsDiv.innerHTML = "";
+
       // Create a container for the graph
       const graphContainer = document.createElement("div");
       graphContainer.classList.add("graph-container");
-      graphContainer.style.display = "flex";
-      graphContainer.style.flexDirection = "row";
-      graphContainer.style.justifyContent = "center";
-      graphContainer.style.padding = "inherit";
+
       // Define the dimensions and radius for the radar chart
       const width = 200;
       const height = 200;
       const radius = Math.min(width, height) / 2;
+
       // Create an SVG element
       const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
       svg.setAttribute("width", width.toString());
       svg.setAttribute("height", height.toString());
       svg.setAttribute("viewBox", `0 0 ${width} ${height}`);
       svg.setAttribute("overflow", "visible");
+
       // Create a group element to hold the radar chart
       const g = document.createElementNS("http://www.w3.org/2000/svg", "g");
       g.setAttribute("transform", `translate(${width / 2},${height / 2})`);
@@ -426,11 +406,7 @@ function renderSkills(): HTMLElement {
         const angle = i * angleSlice - Math.PI / 2; // Adjust to start from y-axis
 
         // Draw lines only for y-axis and diagonals
-
-        const line = document.createElementNS(
-          "http://www.w3.org/2000/svg",
-          "line"
-        );
+        const line = document.createElementNS("http://www.w3.org/2000/svg", "line");
         const dotX = radius * Math.cos(angle);
         const dotY = radius * Math.sin(angle);
         line.setAttribute("y1", "0");
@@ -445,10 +421,7 @@ function renderSkills(): HTMLElement {
         for (let j = 0; j <= 10; j++) {
           const dotX = (radius * j * Math.cos(angle)) / 10;
           const dotY = (radius * j * Math.sin(angle)) / 10;
-          const dot = document.createElementNS(
-            "http://www.w3.org/2000/svg",
-            "circle"
-          );
+          const dot = document.createElementNS("http://www.w3.org/2000/svg", "circle");
           dot.setAttribute("cx", dotX.toString());
           dot.setAttribute("cy", dotY.toString());
           dot.setAttribute("r", "2");
@@ -458,10 +431,7 @@ function renderSkills(): HTMLElement {
       }
 
       // Create the radar area
-      const radarPath = document.createElementNS(
-        "http://www.w3.org/2000/svg",
-        "path"
-      );
+      const radarPath = document.createElementNS("http://www.w3.org/2000/svg", "path");
       const radarCoords = skills
         .map((skill: { amount: number }, i: number) => {
           const angle = i * angleSlice - Math.PI / 2; // Adjust to start from y-axis
@@ -477,11 +447,8 @@ function renderSkills(): HTMLElement {
       radarPath.setAttribute("fill-opacity", "0.9");
       g.appendChild(radarPath);
 
-      // Create circular bordert it is and if it is still valid as it's loading time is high, or should we remove it? The same goes for Cookiebot—is it still valid, or should we remove it?
-      const borderCircle = document.createElementNS(
-        "http://www.w3.org/2000/svg",
-        "circle"
-      );
+      // Create circular border
+      const borderCircle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
       borderCircle.setAttribute("cx", "0");
       borderCircle.setAttribute("cy", "0");
       borderCircle.setAttribute("r", radius.toString());
@@ -496,10 +463,7 @@ function renderSkills(): HTMLElement {
         const angle = i * angleSlice - Math.PI / 2; // Adjust to start from y-axis
         const x = (radius + 10) * Math.cos(angle);
         const y = (radius + 10) * Math.sin(angle);
-        const text = document.createElementNS(
-          "http://www.w3.org/2000/svg",
-          "text"
-        );
+        const text = document.createElementNS("http://www.w3.org/2000/svg", "text");
         text.setAttribute("x", x.toString());
         text.setAttribute("y", y.toString());
         text.setAttribute("fill", "white");
@@ -521,9 +485,10 @@ function renderSkills(): HTMLElement {
       console.error(error);
       // Handle error
     });
-  // container.append(skillsDiv);
+
   return skillsDiv;
 }
+
 
 function renderBottom(): HTMLElement {
   const container = document.createElement("div");
@@ -543,30 +508,38 @@ function renderBottom(): HTMLElement {
 }
 
 export function bottomTitle(): HTMLElement {
-  const container = document.createElement("div-main");
+  const container = document.createElement("div");
   container.style.display = "flex";
   container.style.justifyContent = "space-between";
   container.style.alignItems = "center";
-  const LeftSide = document.createElement("div-left");
-  const RightSide = document.createElement("div-right");
+  container.style.flexWrap = "wrap"; // Ensure elements wrap on smaller screens
+  container.style.width = "100%";
+
+  const LeftSide = document.createElement("div");
+  const RightSide = document.createElement("div");
   RightSide.style.backgroundColor = "var(--pink-3)";
   RightSide.style.padding = "10px";
+  RightSide.style.display = "flex";
+  RightSide.style.alignItems = "center";
+  RightSide.style.gap = "10px";
+
   const title = document.createElement("h3");
   title.innerText = "All Audits";
-  title.style.color = "var(--pink-12)";
+  title.style.color = "var(--blue-12)";
+  title.style.margin = "0"; // Reset default margin
 
   // Filter by dropdown
   const List = document.createElement("select");
   List.id = "auditFilterList";
   const Label = document.createElement("label");
   Label.innerText = "Filter by: ";
-  Label.style.color = "var(--pink-11)";
+  Label.style.color = "var(--blue-11)";
   List.add(new Option("All", "all"));
   List.add(new Option("TO DO", "null"));
   List.add(new Option("PASS", "1"));
   List.add(new Option("FAIL", "0"));
   List.style.backgroundColor = "var(--pink-3)";
-  List.style.color = "var(--pink-12)";
+  List.style.color = "var(--blue-12)";
   List.style.fontWeight = "bold";
   List.style.fontSize = "16px";
   // End of Filter by dropdown
@@ -578,16 +551,17 @@ export function bottomTitle(): HTMLElement {
   return container;
 }
 
+
 function bottomTable(): HTMLElement {
   const container = document.createElement("div");
   container.style.display = "flex";
   container.style.flexDirection = "column";
   container.style.alignItems = "center";
   container.style.justifyContent = "space-between";
-  container.style.backgroundColor = "var(--pink-1)";
-  container.style.border = "2px solid var(--pink-6)";
+  container.style.backgroundColor = "var(--blue-1)";
+  container.style.border = "2px solid var(--blue-6)";
   container.style.borderRadius = "8px";
-  container.style.padding = "25px";
+  container.style.padding = "10px"; // Reduced padding for better responsiveness
   container.style.height = "45vh";
   container.style.marginTop = "10px";
   container.style.width = "100%"; // Ensures the container takes full width
@@ -602,8 +576,8 @@ function bottomTable(): HTMLElement {
   table.style.borderCollapse = "collapse";
 
   const thead = document.createElement("thead");
-  thead.style.textAlign = "justify";
-  thead.style.borderBottom = "4px solid var(--pink-6)";
+  thead.style.textAlign = "left";
+  thead.style.borderBottom = "4px solid var(--blue-6)";
   thead.style.padding = "10px";
 
   const tr = document.createElement("tr");
@@ -631,7 +605,7 @@ function bottomTable(): HTMLElement {
     tbody.innerHTML = "";
     filteredAudits.forEach((audit) => {
       const tr = document.createElement("tr");
-      tr.style.borderBottom = "1px solid var(--pink-6)";
+      tr.style.borderBottom = "1px solid var(--blue-6)";
 
       // project name (captain name)
       const td1 = document.createElement("td");
@@ -721,6 +695,7 @@ function bottomTable(): HTMLElement {
 }
 
 
+
 function workingOn(): HTMLElement {
   const container = document.createElement("div");
   container.style.display = "flex";
@@ -731,16 +706,16 @@ function workingOn(): HTMLElement {
 
   const workingOnTitle = document.createElement("div");
   const projectTitle = document.createElement("h5");
-  projectTitle.style.color = "var(--pink-11)";
+  projectTitle.style.color = "var(--blue-11)";
   const projectName = document.createElement("h5");
-  projectName.style.color = "var(--pink-12)";
+  projectName.style.color = "var(--blue-12)";
   workingOnTitle.append(projectTitle, projectName);
 
   const workingOnDate = document.createElement("div");
   const startedOnTitle = document.createElement("h5");
-  startedOnTitle.style.color = "var(--pink-11)";
+  startedOnTitle.style.color = "var(--blue-11)";
   const startedOnDate = document.createElement("h5");
-  startedOnDate.style.color = "var(--pink-12)";
+  startedOnDate.style.color = "var(--blue-12)";
   workingOnDate.append(startedOnTitle, startedOnDate);
 
   container.append(workingOnTitle, workingOnDate);
